@@ -29,7 +29,7 @@ func (p *ProjectPlan) LoadProjectPlan(path string) (plan entity.ProjectPlan, err
 	}()
 
 	// 读取计划中的所有数据
-	rows, err := f.GetRows("计划")
+	rows, err := f.GetRows(entity.PLAN_SHEET)
 	if err != nil {
 		fmt.Println(err)
 		return

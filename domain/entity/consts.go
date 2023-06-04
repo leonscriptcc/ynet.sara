@@ -15,3 +15,8 @@ const (
 	PLAN_DATE = "01-02-06"
 	TASK_DATE = "2006/1/02"
 )
+
+const (
+	PLAN_SHEET = "计划"
+	TASK_SHEET = "任务导入"
+)
