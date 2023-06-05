@@ -51,4 +51,6 @@ func main() {
 		log.Println("ImportTaskTemplate fail " + err.Error())
 		return
 	}
+
+	log.Println("enjoy your result")
 }

@@ -25,4 +25,6 @@ const (
 const (
 	TASK_TEMPLATE_PATH = "./example.xlsx"
 	ROSTER_PATH        = "./roster.xlsx"
+	//TASK_TEMPLATE_PATH = "/Users/leonscript/Documents/YNET/sara/example.xlsx"
+	//ROSTER_PATH        = "/Users/leonscript/Documents/YNET/sara/roster.xlsx"
 )
