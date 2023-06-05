@@ -52,6 +52,36 @@ func (p *ProjectPlan) LoadProjectPlan(path string) (plan entity.ProjectPlan, err
 
 }
 
+// LoadRoaster 读取人员信息
+func (p *ProjectPlan) LoadRoaster() (roster map[string]string, err error) {
+	roster = make(map[string]string)
+	// 打开excel
+	f, err := excelize.OpenFile(entity.ROSTER_PATH)
+	if err != nil {
+		return roster, err
+	}
+	defer func() {
+		// release file descriptor
+		if err := f.Close(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+
+	// 读取计划中的所有数据
+	rows, err := f.GetRows(entity.ROSERT_SHEET)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// 处理数据
+	for i := 1; i < len(rows); i++ {
+		roster[rows[i][0]] = rows[i][1]
+	}
+
+	return roster, err
+}
+
 // analyseData 解析数据
 func (p *ProjectPlan) analyseData(i int, data string, plan *entity.ProjectPlan) (err error) {
 	switch i {

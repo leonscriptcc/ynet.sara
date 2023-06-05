@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"github.com/leonscriptcc/ynet.sara/domain/entity"
 	"github.com/leonscriptcc/ynet.sara/domain/service"
 	"github.com/leonscriptcc/ynet.sara/reference"
 	"log"
@@ -37,9 +38,15 @@ func main() {
 		return
 	}
 
+	// 读取名册
+	roster, err := projectPlan.LoadRoaster()
+	if err != nil {
+		log.Println("LoadRoaster fail " + err.Error())
+	}
+
 	// 导入数据
 	err = taskTemplate.ImportTaskTemplate(dir,
-		"./example.xlsx", plan)
+		entity.TASK_TEMPLATE_PATH, plan, roster)
 	if err != nil {
 		log.Println("ImportTaskTemplate fail " + err.Error())
 		return

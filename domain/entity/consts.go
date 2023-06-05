@@ -17,6 +17,12 @@ const (
 )
 
 const (
-	PLAN_SHEET = "计划"
-	TASK_SHEET = "任务导入"
+	PLAN_SHEET   = "计划"
+	TASK_SHEET   = "任务导入"
+	ROSERT_SHEET = "roster"
+)
+
+const (
+	TASK_TEMPLATE_PATH = "./example.xlsx"
+	ROSTER_PATH        = "./roster.xlsx"
 )
