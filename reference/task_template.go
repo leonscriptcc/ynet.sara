@@ -24,6 +24,12 @@ func (t *TaskTemplate) ImportTaskTemplate(dir, emPath string, plan entity.Projec
 			if err != nil {
 				return err
 			}
+			defer func() {
+				// release file descriptor
+				if err := f.Close(); err != nil {
+					fmt.Println(err)
+				}
+			}()
 			// 录入任务
 			for i, task := range order.Tasks {
 				dataArray := []interface{}{task.Name, nil, nil, task.Executor, roster[task.Executor], task.StartDate, task.EndDate, task.Workload, task.Name}
