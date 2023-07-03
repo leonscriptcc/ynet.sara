@@ -16,6 +16,7 @@ func main() {
 	// 声明
 	flag.StringVar(&planPath, "plan", "", "计拆拆模板路径")
 	flag.StringVar(&dir, "dir", "", "生成模板文件夹")
+
 	// 开始解析命令行参数
 	flag.Parse()
 	if dir == "" || planPath == "" {
@@ -32,7 +33,7 @@ func main() {
 	taskTemplate = reference.NewTaskTemplate()
 
 	// 读取数据
-	plan, err := projectPlan.LoadProjectPlan(planPath)
+	plan, err := projectPlan.LoadProjectPlanFromFile(planPath)
 	if err != nil {
 		log.Println("LoadProjectPlan fail " + err.Error())
 		return

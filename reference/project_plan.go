@@ -15,9 +15,9 @@ func NewProjectPlan() *ProjectPlan {
 	return &ProjectPlan{}
 }
 
-// LoadProjectPlan 从计拆拆模版中导出数据
-func (p *ProjectPlan) LoadProjectPlan(path string) (plan entity.ProjectPlan, err error) {
-	f, err := excelize.OpenFile(path)
+// LoadProjectPlanFromFile 从计拆拆模版中导出数据
+func (p *ProjectPlan) LoadProjectPlanFromFile(filePath string) (plan entity.ProjectPlan, err error) {
+	f, err := excelize.OpenFile(filePath)
 	if err != nil {
 		return plan, err
 	}
